@@ -22,7 +22,7 @@ before_install:
   - gometalinter --install
 
 install:
-  - dep ensure
+  - dep ensure -v
 
 script:
   - make ci
