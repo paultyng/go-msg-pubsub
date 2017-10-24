@@ -1,0 +1,30 @@
+go_import_path: github.com/paultyng/go-msg-pubsub
+
+language: go
+go:
+  - 1.8.x
+  - 1.9.x
+  - tip
+
+os:
+  - linux
+  - osx
+
+matrix:
+  allow_failures:
+    - go: tip
+    - os: osx
+  fast_finish: true
+
+before_install:
+  - go get -u github.com/golang/dep/cmd/dep
+  - go get -u github.com/alecthomas/gometalinter
+  - gometalinter --install
+
+install:
+  - dep ensure
+
+script:
+  - make ci
+
+sudo: false
