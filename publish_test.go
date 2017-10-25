@@ -10,7 +10,7 @@ func TestPSAtts(t *testing.T) {
 	assert := assert.New(t)
 
 	bad := map[string][]string{
-		"foo": []string{"bar", "baz"},
+		"foo": {"bar", "baz"},
 	}
 
 	actual, err := psAtts(bad)
@@ -19,8 +19,8 @@ func TestPSAtts(t *testing.T) {
 
 	good := map[string][]string{
 		"foo": nil,
-		"bar": []string{"1"},
-		"baz": []string{},
+		"bar": {"1"},
+		"baz": {},
 	}
 
 	actual, err = psAtts(good)

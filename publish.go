@@ -19,8 +19,8 @@ type psClient struct {
 	cli *gcloud.Client
 }
 
-// New returns a new instance of a pubsub Client for a given gcloud project.
-func New(ctx context.Context, projectID string) (Client, error) {
+// NewClient returns a new instance of a pubsub Client for a given gcloud project.
+func NewClient(ctx context.Context, projectID string) (Client, error) {
 	cli, err := gcloud.NewClient(ctx, projectID)
 	if err != nil {
 		return nil, err
@@ -115,6 +115,7 @@ func (m *psMessage) Close() error {
 		return err
 	}
 
+	// only data and attributes are used in publishing
 	psm := &gcloud.Message{
 		Data:       m.buf.Bytes(),
 		Attributes: atts,

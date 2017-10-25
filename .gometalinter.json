@@ -1,4 +1,5 @@
 {
+  "LineLength": 120,
   "Linters": {
     "errcheck": "errcheck -exclude errcheck_excludes.txt -abspath:PATH:LINE:COL:MESSAGE"
   },
@@ -8,6 +9,7 @@
     "gas",
     "goconst",
     "gocyclo",
+    "gofmt",
     "golint",
     "ineffassign",
     "interfacer",
