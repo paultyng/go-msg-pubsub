@@ -104,6 +104,7 @@ func (s *psServer) Serve(r msg.Receiver) error {
 	ctx := context.Background()
 	s.Lock()
 	ctx, s.cancel = context.WithCancel(ctx)
+	defer s.cancel()
 	s.Unlock()
 
 	return s.sub.Receive(ctx, func(ctx oldcontext.Context, src *gcloud.Message) {
