@@ -11,7 +11,7 @@ import (
 )
 
 var (
-	halloween17  = time.Date(2017, 10, 31, 20, 0, 0, 0, time.Local)
+	halloween17  = time.Date(2017, 10, 31, 20, 0, 0, 0, time.UTC)
 	halloween17s = halloween17.Format(MessagePublishTimeFormat)
 )
 
